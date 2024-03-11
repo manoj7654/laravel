@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\batch;
+use App\Models\quiz;
+use Illuminate\Support\Facades\Auth;
 class QuizController extends Controller
 {
     /**
@@ -12,6 +14,8 @@ class QuizController extends Controller
     public function index()
     {
         //
+        $quizzes=quiz::with(['batch','user'])->paginate(2);
+        return view('quizzes.index',['quizzes'=>$quizzes]);
     }
 
     /**
@@ -20,6 +24,8 @@ class QuizController extends Controller
     public function create()
     {
         //
+        $batches=batch::all();
+        return view('quizzes.create',['batches'=>$batches]);
     }
 
     /**
@@ -28,6 +34,20 @@ class QuizController extends Controller
     public function store(Request $request)
     {
         //
+        $title = $request->input('title');
+        $starting = $request->input('starting');
+        $ending = $request->input('ending');
+        $duration = $request->input('duration');
+        $batch_id = $request->input('batch_id');
+        $quiz=new quiz();
+        $quiz->title=$title;
+        $quiz->starting=$starting;
+        $quiz->ending=$ending;
+        $quiz->duration=$duration;
+        $quiz->batch_id=$batch_id;
+        $quiz->user_id=Auth::id();
+        $quiz->save();
+        return $quiz->id;
     }
 
     /**

@@ -12,7 +12,7 @@ class BatchController extends Controller
     public function index()
     {
         //
-        $batches=batch::paginate(2);
+        $batches=batch::withCount('quizzes')->paginate(2);
         return view('batches.index',['batches'=>$batches]);
     }
 
