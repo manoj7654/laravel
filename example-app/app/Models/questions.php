@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class question extends Model
+class questions extends Model
 {
     use HasFactory;
     public function quizzes():BelongsToMany

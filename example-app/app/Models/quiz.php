@@ -16,8 +16,8 @@ class quiz extends Model
     {
         return $this->belongsTo(batch::class);
     }
-    public function question():BelongsToMany
+    public function questions():BelongsToMany
     {
-        return $this->belongsToMany(question::class);
+        return $this->belongsToMany(questions::class);
     }
 }

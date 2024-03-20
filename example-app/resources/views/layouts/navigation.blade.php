@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('quizzes.index')" :active="request()->routeIs('quizzes.index')">
                        Quizzes
                     </x-nav-link>
+                    <x-nav-link :href="route('questions.index')" :active="request()->routeIs('questions.index')">
+                       Question
+                    </x-nav-link>
                 </div>
             </div>
 
