@@ -9,16 +9,16 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                <form method="POST" action="{{ route('batches.store') }}">
-                        @csrf  
+                    <form method="POST" action="{{ route('batches.store') }}">
+                        @csrf
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6 sm:col-span-4">
-                            <label for="name" value="Name">Name</label>
+                                <label for="name" value="Name">Name</label>
                                 <input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required>
                             </div>
                             <div class="col-span-6 sm:col-span-2">
-                                <label for="starting" value="Starting" >
-                                <input id="starting" class="block mt-1 w-full" type="date" name="starting" :value="old('starting')" required>
+                                <label for="starting" value="Starting">
+                                    <input id="starting" class="block mt-1 w-full" type="date" name="starting" :value="old('starting')" required>
                             </div>
                             <div class="flex col-span-6 justify-end">
                                 <button>
@@ -26,7 +26,7 @@
                                 </button>
                             </div>
                         </div>
-</form>
+                    </form>
                 </div>
             </div>
         </div>
